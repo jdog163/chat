@@ -21,6 +21,8 @@ class UserController{
 
         // Add all routing middleware for user endpoints
         AraDTApp.post('/register', this.register);
+        AraDTApp.get('/login', this.getLogin);
+        AraDTApp.get('/register', this.getRegister);
         AraDTApp.post('/login', this.login);
         AraDTApp.get('/logout', this.logout);
         AraDTApp.get('/account', this.getAccount);
@@ -169,6 +171,14 @@ class UserController{
         }
         response.render('account');
     }
+
+    getLogin(request, response){
+        response.render('login');
+    }
+    getRegister(request, response){
+        response.render('register');
+    }
+    
 
     logout = async (request, response) => {
         request.session.errors.general = ['You have been logged out'];
